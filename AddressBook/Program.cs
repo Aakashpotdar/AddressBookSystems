@@ -101,6 +101,7 @@ namespace AddressBook
                         string CityName = Console.ReadLine();
                         book.SearchCity(CityName);
                         break;
+
                 }
 
             }
