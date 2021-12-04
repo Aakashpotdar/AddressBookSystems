@@ -29,7 +29,8 @@ namespace AddressBook
                 Console.WriteLine("A - Add an Data");
                 Console.WriteLine("E - Edit an Data");
                 Console.WriteLine("D - Delete an Data");
-                Console.WriteLine("S - Search an Data");
+                Console.WriteLine("S - Search City Name");
+                Console.WriteLine("F - Search Person name by City Name");
                 Console.WriteLine("Q - Quit");
             }
             void performAction(string selection)
@@ -97,9 +98,14 @@ namespace AddressBook
                         }
                         break;
                     case "S":
-                        Console.WriteLine("Search City name");
+                        Console.WriteLine("Enter City name");
                         string CityName = Console.ReadLine();
                         book.SearchCity(CityName);
+                        break;
+                    case "F":
+                        Console.WriteLine("Enter City name to find persons");
+                        string CityNameToSearchName = Console.ReadLine();
+                        book.SearchCity(CityNameToSearchName);
                         break;
 
                 }
