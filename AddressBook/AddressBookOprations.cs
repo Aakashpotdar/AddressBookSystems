@@ -63,7 +63,14 @@ namespace AddressBook
             {
                 Console.WriteLine("the City is not present");
             }
-
+            
+        }
+        public void SearchNameByCityName(string CityName)
+        {
+            foreach (Address per in addresses.FindAll(e => (e.city == CityName)).ToList())
+            {
+                Console.WriteLine("Name: " + per.name + " City: " + per.city);
+            }
         }
     }
 }
