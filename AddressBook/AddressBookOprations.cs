@@ -8,6 +8,7 @@ namespace AddressBook
     class AddressBookOprations
     {
         List<Address> addresses;
+        Dictionary<string, Address> DictionaryObj = new Dictionary<string, Address>();
 
         public AddressBookOprations()
         {
@@ -22,6 +23,7 @@ namespace AddressBook
             if (result == null)
             {
                 addresses.Add(addr);
+                DictionaryObj.Add(city, addr);
                 return true;
             }
             else
@@ -89,6 +91,18 @@ namespace AddressBook
             {
                 Console.WriteLine(i);
             }
+        }
+
+        public void SortingByCityName()
+        {
+            var list = DictionaryObj.Keys.ToList();
+            list.Sort();
+            Console.WriteLine("the sorted data ky city name");
+            foreach (var per in list)
+            {
+                Console.WriteLine(per);
+            }
+
         }
     }
 }
