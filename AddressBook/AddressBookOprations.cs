@@ -81,5 +81,14 @@ namespace AddressBook
             }
             Console.WriteLine(" City: " + CityName+" number of entries is "+count);
         }
+        public void SortData()
+        {
+            addresses.Sort();
+            Console.WriteLine("Sorted data");
+            foreach (Address i in addresses)
+            {
+                Console.WriteLine(i);
+            }
+        }
     }
 }

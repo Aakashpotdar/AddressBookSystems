@@ -32,6 +32,7 @@ namespace AddressBook
                 Console.WriteLine("S - Search an city name");
                 Console.WriteLine("C - Search an names using city name");
                 Console.WriteLine("N - Search number of data with City name");
+                Console.WriteLine("F - Sort the data");
                 Console.WriteLine("Q - Quit");
             }
             void performAction(string selection)
@@ -112,6 +113,10 @@ namespace AddressBook
                         Console.WriteLine("enter City name");
                         CityName = Console.ReadLine();
                         book.SearchNumberOfAddressByCity(CityName);
+                        break;
+                    case "F":
+                        
+                        book.SortData();
                         break;
                 }
 
