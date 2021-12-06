@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using System.Globalization;
+using System.IO;
+using CsvHelper;
 
 namespace AddressBook
 {
@@ -14,7 +17,26 @@ namespace AddressBook
         {
             addresses = new List<Address>();
         }
+        public void addingCsvData()
+        {
+            string path = @"C:/Users/AKASH/source/repos/AddressBook/AddressBook/Info.csv";
+            using(var reader=new StreamReader(path))
+            using(var csv=new CsvReader(reader, CultureInfo.InvariantCulture))
+            {
+                var record = csv.GetRecords<Address>().ToList();
+                foreach(Address i in record)
+                {
+                    Console.Write(" "+i.name);
+                    Console.Write(" " + i.lastName);
+                    Console.Write(" " + i.address);
+                    Console.Write(" " + i.city);
+                    Console.Write(" " + i.state);
+                    Console.Write(" " + i.mobilenum);
+                    Console.Write(" " + i.MailId);
+                }
+            }
 
+        }
         public bool add(string name, string lastName, string address, string city, string state, int zipCode, double mobileNum, string mailId)
         {
             Address addr = new Address(name, lastName, address, city, state, zipCode, mobileNum, mailId);

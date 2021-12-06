@@ -26,6 +26,7 @@ namespace AddressBook
             }
             void displayMenu()
             {
+                Console.WriteLine("O - to add Csv data");
                 Console.WriteLine("A - Add an Data");
                 Console.WriteLine("E - Edit an Data");
                 Console.WriteLine("D - Delete an Data");
@@ -122,6 +123,10 @@ namespace AddressBook
                     case "W":
 
                         book.SortingByCityName();
+                        break;
+                    case "O":
+
+                        book.addingCsvData();
                         break;
                 }
 
