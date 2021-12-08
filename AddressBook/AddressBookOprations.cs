@@ -85,22 +85,18 @@ namespace AddressBook
         }
         public void SortData()
         {
-            addresses.Sort();
             Console.WriteLine("Sorted data");
-            foreach (Address i in addresses)
+            foreach (Address i in addresses.OrderBy(e=>e.name))
             {
                 Console.WriteLine(i);
             }
         }
-
         public void SortingByCityName()
         {
-            var list = DictionaryObj.Keys.ToList();
-            list.Sort();
-            Console.WriteLine("the sorted data ky city name");
-            foreach (var per in list)
+            Console.WriteLine("The data is sorted by city name");
+            foreach (var per in addresses.OrderBy(e => e.city))
             {
-                Console.WriteLine(per);
+                Console.WriteLine(per.city + " " + per.name + " " + per.lastName + " " + per.mobilenum);
             }
 
         }
