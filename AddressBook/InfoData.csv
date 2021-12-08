@@ -1,5 +1,5 @@
-"name,lastName,address,city,state,zipCode,mobileNum,emailId"
-"aakash,potdar,skhdkj,solapur,MH,98374,3984729980,king@gmail.com"
-"virat,kohali,hjsdbh,bengloru,KA,28379,9287982,virat@gmail.com"
-"rohit,sharma,jhbhmk,mumbai,MH,289323,24729874,rohit@gmail.com"
-"yuvrah,singh,jhdgs,amritser,PN,92372,29847420,yuvraj@gmail.com"
+name,lastName,address,city,state,zipCode,mobileNum,MailId
+yuvrah,singh,jhdgs,amritser,PN,92372,29847420,yuvraj@gmail.com
+rohit,sharma,jhbhmk,mumbai,MH,289323,24729874,rohit@gmail.com
+aakash,potdar,skhdkj,solapur,MH,98374,3984729980,king@gmail.com
+virat,kohali,hjsdbh,bengloru,KA,28379,9287982,virat@gmail.com

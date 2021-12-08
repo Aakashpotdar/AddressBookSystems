@@ -46,7 +46,7 @@ namespace AddressBook
                 string state = "";
                 int zipCode;
                 double mobileNum;
-                string mailId = "";
+                string MailId = "";
                 switch (selection.ToUpper())
                 {
                     case "A":
@@ -59,8 +59,8 @@ namespace AddressBook
                         state = Console.ReadLine();
                         zipCode = int.Parse(Console.ReadLine());
                         mobileNum = double.Parse(Console.ReadLine());
-                        mailId = Console.ReadLine();
-                        if (book.add(name, lastName, address, city, state, zipCode, mobileNum, mailId))
+                        MailId = Console.ReadLine();
+                        if (book.add(name, lastName, address, city, state, zipCode, mobileNum, MailId))
                         {
                             Console.WriteLine("Address successfully added!");
                         }
@@ -95,7 +95,7 @@ namespace AddressBook
                             addr.address = Console.ReadLine();
                             addr.city = Console.ReadLine();
                             addr.state = Console.ReadLine();
-                            addr.code = int.Parse(Console.ReadLine());
+                            addr.zipCode = int.Parse(Console.ReadLine());
                             addr.mobilenum = double.Parse(Console.ReadLine());
                             addr.MailId = Console.ReadLine();
                             Console.WriteLine("Data updated for {0}", name);

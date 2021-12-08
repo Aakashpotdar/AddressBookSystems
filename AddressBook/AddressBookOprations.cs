@@ -19,23 +19,25 @@ namespace AddressBook
         }
         public void addingCsvData()
         {
-            string path = @"C:/Users/AKASH/source/repos/AddressBook/AddressBook/Info.csv";
+            string path = @"C:/Users/AKASH/source/repos/AddressBook/AddressBook/InfoData.csv";
             using(var reader=new StreamReader(path))
             using(var csv=new CsvReader(reader, CultureInfo.InvariantCulture))
             {
                 var record = csv.GetRecords<Address>().ToList();
                 foreach(Address i in record)
                 {
+                    addresses.Add(i);
                     Console.Write(" "+i.name);
                     Console.Write(" " + i.lastName);
                     Console.Write(" " + i.address);
                     Console.Write(" " + i.city);
                     Console.Write(" " + i.state);
+                    Console.Write(" " + i.zipCode);
                     Console.Write(" " + i.mobilenum);
                     Console.Write(" " + i.MailId);
+                    Console.WriteLine();
                 }
             }
-
         }
         public bool add(string name, string lastName, string address, string city, string state, int zipCode, double mobileNum, string mailId)
         {
@@ -107,22 +109,19 @@ namespace AddressBook
         }
         public void SortData()
         {
-            addresses.Sort();
             Console.WriteLine("Sorted data");
-            foreach (Address i in addresses)
+            foreach (var i in addresses.OrderBy(e => e.name))
             {
-                Console.WriteLine(i);
+                Console.WriteLine(i.name+" "+ i.lastName + " " + i.city + " " +i.mobilenum);
             }
         }
 
         public void SortingByCityName()
         {
-            var list = DictionaryObj.Keys.ToList();
-            list.Sort();
-            Console.WriteLine("the sorted data ky city name");
-            foreach (var per in list)
+            Console.WriteLine("The data is sorted by city name");
+            foreach (var per in addresses.OrderBy(e=>e.city))
             {
-                Console.WriteLine(per);
+                Console.WriteLine(per.city + " "+per.name + " " + per.lastName + " " + per.mobilenum);
             }
 
         }
