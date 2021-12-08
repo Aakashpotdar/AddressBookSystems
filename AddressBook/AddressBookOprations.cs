@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using System.Globalization;
+using Newtonsoft.Json;
 using System.IO;
 using CsvHelper;
+//using System.Text.Json;
 
 namespace AddressBook
 {
@@ -123,7 +125,16 @@ namespace AddressBook
             {
                 Console.WriteLine(per.city + " "+per.name + " " + per.lastName + " " + per.mobilenum);
             }
-
+        }
+        public void WritingDataToJsonFile()
+        {
+            string path = @"C:/Users/AKASH/source/repos/AddressBook/AddressBook/Data.Json";
+            JsonSerializer read = new JsonSerializer();
+            using (StreamWriter wrt = new StreamWriter(path))
+            using (JsonWriter w = new JsonTextWriter(wrt))
+            {
+                read.Serialize(w, addresses);
+            }
         }
     }
 }

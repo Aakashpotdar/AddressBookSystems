@@ -35,6 +35,7 @@ namespace AddressBook
                 Console.WriteLine("N - Search number of data with City name");
                 Console.WriteLine("F - Sort the data");
                 Console.WriteLine("W - Sort the data by city name");
+                Console.WriteLine("M - Write data in Json File");
                 Console.WriteLine("Q - Quit");
             }
             void performAction(string selection)
@@ -127,6 +128,10 @@ namespace AddressBook
                     case "O":
 
                         book.addingCsvData();
+                        break;
+                    case "M":
+
+                        book.WritingDataToJsonFile();
                         break;
                 }
 
