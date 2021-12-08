@@ -83,11 +83,10 @@ namespace AddressBook
         }
         public void SortData()
         {
-            addresses.Sort();
             Console.WriteLine("Sorted data");
-            foreach (Address i in addresses)
+            foreach (var i in addresses.OrderBy(e => e.name))
             {
-                Console.WriteLine(i);
+                Console.WriteLine(i.name + " " + i.lastName + " " + i.city + " " + i.mobilenum);
             }
         }
     }
