@@ -20,6 +20,8 @@ namespace AddressBook
         }
         public void addingCsvData()
         {
+            OprationsOnDataBase addToDB = new OprationsOnDataBase();
+           
             string path = @"C:/Users/AKASH/source/repos/AddressBook/AddressBook/InfoData.csv";
             using(var reader=new StreamReader(path))
             using(var csv=new CsvReader(reader, CultureInfo.InvariantCulture))
@@ -27,6 +29,7 @@ namespace AddressBook
                 var record = csv.GetRecords<Address>().ToList();
                 foreach(Address i in record)
                 {
+                    
                     addresses.Add(i);
                     Console.Write(" "+i.name);
                     Console.Write(" " + i.lastName);

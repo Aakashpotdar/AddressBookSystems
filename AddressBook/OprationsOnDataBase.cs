@@ -5,19 +5,20 @@ using System.Text;
 
 namespace AddressBook
 {
-    class OprationsOnDataBase
+    public class OprationsOnDataBase
     {
+        public static string ConnectionLink = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=AddressBook;Integrated Security=True";
+        SqlConnection connection = new SqlConnection(ConnectionLink);
+
         public void GetAllEmpoyee(string query)
         {
-            string ConnectionLink = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=AddressBook;Integrated Security=True";
-            SqlConnection connection = new SqlConnection(ConnectionLink);
             try
             {
                 AddressDetails employeeModel = new AddressDetails();
-                using (connection)
+                using (this.connection)
                 {
-                    SqlCommand cmd = new SqlCommand(query, connection);
-                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(query, this.connection);
+                    this.connection.Open();
                     SqlDataReader dr = cmd.ExecuteReader();
 
                     if (dr.HasRows)
@@ -42,7 +43,7 @@ namespace AddressBook
                         Console.WriteLine("no data found");
                     }
                     dr.Close();
-                    connection.Close();
+                    this.connection.Close();
                 }
 
             }
@@ -54,6 +55,40 @@ namespace AddressBook
             {
                 connection.Close();
             }
+        }
+
+        public void AddDataToDB(Addresses a)
+        {
+            try
+            {
+                using (this.connection) 
+                {
+                    SqlCommand com = new SqlCommand("ApAddAddress", this.connection);
+                    com.CommandType = System.Data.CommandType.StoredProcedure;
+                    com.Parameters.AddWithValue("@First_Name", a.First_Name);
+                    com.Parameters.AddWithValue("@Last_Name", a.Last_Name);
+                    com.Parameters.AddWithValue("@city", a.city);
+                    com.Parameters.AddWithValue("@state", a.state);
+                    com.Parameters.AddWithValue("@zip", a.zip);
+                    com.Parameters.AddWithValue("@phone_Number", a.phoneNumber);
+                    com.Parameters.AddWithValue("@email", a.email);
+                    com.Parameters.AddWithValue("@Type", a.Type);
+
+                    this.connection.Open();
+                    var result = com.ExecuteNonQuery();
+                    this.connection.Close();
+
+                    
+                }
+            }catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            finally
+            {
+                this.connection.Close();
+            }
+
         }
     }
 }

@@ -39,7 +39,7 @@ namespace AddressBook
                 Console.WriteLine("T - Read data from DataBase");
                 Console.WriteLine("U - Read data from DataBase by name");
                 Console.WriteLine("P - Read data from DataBase by name");
-
+                Console.WriteLine("G - Add data to DataBase");
                 Console.WriteLine("Q - Quit");
             }
             void performAction(string selection)
@@ -156,6 +156,21 @@ namespace AddressBook
                         CityName = Console.ReadLine();
                         query = "Select COUNT(*) from AddressBook where city=" + "'" + CityName + "'";
                         obj2.GetAllEmpoyee(query);
+                        break;
+                    case "G":
+                        OprationsOnDataBase obj3= new OprationsOnDataBase();
+                        Addresses add = new Addresses();
+
+                        add.First_Name = "Dwen";
+                        add.Last_Name = "Johnson";
+                        add.state = "DK";
+                        add.city = "NA";
+                        add.email = "DJ@gmailcom";
+                        add.phoneNumber = 8393342;
+                        add.zip = 3598;
+                        add.Type = "Family";
+                        
+                        obj3.AddDataToDB(add);
                         break;
                 }
 
