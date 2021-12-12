@@ -36,6 +36,8 @@ namespace AddressBook
                 Console.WriteLine("F - Sort the data");
                 Console.WriteLine("W - Sort the data by city name");
                 Console.WriteLine("M - Write data in Json File");
+                Console.WriteLine("T - Read data from DataBase");
+                Console.WriteLine("U - Read data from DataBase by name");
                 Console.WriteLine("Q - Quit");
             }
             void performAction(string selection)
@@ -132,6 +134,18 @@ namespace AddressBook
                     case "M":
 
                         book.WritingDataToJsonFile();
+                        break;
+                    case "T":
+                        OprationsOnDataBase obj = new OprationsOnDataBase();
+                        string query = "Select First_Name,Last_Name,city,state,zip,phone_number,email,Type from AddressBook";
+                        obj.GetAllEmpoyee(query);
+                        break;
+                    case "U":
+                        OprationsOnDataBase obj1 = new OprationsOnDataBase();
+                        Console.WriteLine("enter name");
+                        string Firstname = Console.ReadLine();
+                        query = "Select * from AddressBook where First_Name="+"'"+Firstname+"'";
+                        obj1.GetAllEmpoyee(query);
                         break;
                 }
 
