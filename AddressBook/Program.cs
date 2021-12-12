@@ -38,6 +38,8 @@ namespace AddressBook
                 Console.WriteLine("M - Write data in Json File");
                 Console.WriteLine("T - Read data from DataBase");
                 Console.WriteLine("U - Read data from DataBase by name");
+                Console.WriteLine("P - Read data from DataBase by name");
+
                 Console.WriteLine("Q - Quit");
             }
             void performAction(string selection)
@@ -147,6 +149,13 @@ namespace AddressBook
                         string Firstname = Console.ReadLine();
                         query = "Select * from AddressBook where First_Name="+"'"+Firstname+"'";
                         obj1.GetAllEmpoyee(query);
+                        break;
+                    case "P":
+                        OprationsOnDataBase obj2 = new OprationsOnDataBase();
+                        Console.WriteLine("enter city name");
+                        CityName = Console.ReadLine();
+                        query = "Select COUNT(*) from AddressBook where city=" + "'" + CityName + "'";
+                        obj2.GetAllEmpoyee(query);
                         break;
                 }
 
