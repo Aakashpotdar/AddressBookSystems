@@ -136,6 +136,7 @@ namespace AddressBook
                         book.WritingDataToJsonFile();
                         break;
                     case "T":
+
                         OprationsOnDataBase obj = new OprationsOnDataBase();
                         string query = "Select First_Name,Last_Name,city,state,zip,phone_number,email,Type from AddressBook";
                         obj.GetAllEmpoyee(query);
